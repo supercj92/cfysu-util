@@ -8,7 +8,7 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cfysu</groupId>
+	<groupId>com.cfysu.util</groupId>
 	<artifactId>util</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>util</name>
@@ -35,20 +35,11 @@
 				<version>${spring-boot.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.cfysu</groupId>
+				<groupId>com.cfysu.util</groupId>
 				<artifactId>listener</artifactId>
 				<version>${listener.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

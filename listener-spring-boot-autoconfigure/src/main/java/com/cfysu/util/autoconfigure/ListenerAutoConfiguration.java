@@ -27,7 +27,7 @@ public class ListenerAutoConfiguration {
 
     @Bean
     public EventPublisher eventPublisher(){
-        logger.info(listenerProperties.getTestMsg());
+        logger.info("testMsg:{}", listenerProperties.getTestMsg());
         logger.info("BotEventComponent creating ...");
         return new BotEventComponent();
     }
