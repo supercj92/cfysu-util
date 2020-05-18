@@ -3,6 +3,7 @@ package com.cfysu.util.autoconfigure;
 import com.cfysu.util.listener.event.BotEvent;
 import com.cfysu.util.listener.publisher.BotEventComponent;
 import com.cfysu.util.listener.publisher.EventPublisher;
+import com.cfysu.util.listener.register.ListenerRegister;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class ListenerAutoConfiguration {
     public EventPublisher eventPublisher(){
         logger.info("testMsg:{}", listenerProperties.getTestMsg());
         logger.info("BotEventComponent creating ...");
+        return new BotEventComponent();
+    }
+
+    @Bean
+    public ListenerRegister listenerRegister(){
         return new BotEventComponent();
     }
 

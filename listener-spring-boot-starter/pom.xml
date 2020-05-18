@@ -16,6 +16,10 @@
         </dependency>
         <dependency>
             <groupId>com.cfysu.util</groupId>
+            <artifactId>listener-spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.cfysu.util</groupId>
             <artifactId>listener</artifactId>
         </dependency>
     </dependencies>

@@ -8,5 +8,5 @@ import com.cfysu.util.listener.listener.BotListener;
  */
 public interface ListenerRegister {
 
-    void addListener(BotListener listener);
+    void registerListener(BotListener listener);
 }

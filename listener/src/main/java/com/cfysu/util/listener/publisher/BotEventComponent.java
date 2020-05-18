@@ -19,7 +19,7 @@ import org.springframework.core.annotation.AnnotationAwareOrderComparator;
  */
 public class BotEventComponent implements EventPublisher, ListenerRegister {
 
-    private Set<BotListener> listenerList = new HashSet<>();
+    public static Set<BotListener> listenerList = new HashSet<>();
 
     private Map<String, List<BotListener>> eventAssignListenerCache = new HashMap<>();
 
@@ -44,7 +44,7 @@ public class BotEventComponent implements EventPublisher, ListenerRegister {
     }
 
     @Override
-    public void addListener(BotListener listener) {
+    public void registerListener(BotListener listener) {
         listenerList.add(listener);
     }
 
@@ -83,5 +83,4 @@ public class BotEventComponent implements EventPublisher, ListenerRegister {
         }
         return resolvableType.getGeneric();
     }
-
 }
