@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.cfysu.util.strategy.autoconfigure.StrategyAutoConfiguration,\
+  com.cfysu.util.strategy.core.register.StrategySpringDetector

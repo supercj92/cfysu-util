@@ -9,22 +9,22 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cfysu.util</groupId>
-	<artifactId>util</artifactId>
+	<artifactId>tool-kits-strategy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>util</name>
-	<description>utils</description>
+	<name>tool-kits-strategy</name>
+	<description>tool-kits-strategy</description>
 	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<listener.version>0.0.1-SNAPSHOT</listener.version>
+		<strategy.version>0.0.1-SNAPSHOT</strategy.version>
 		<spring-boot.version>2.2.7.RELEASE</spring-boot.version>
 	</properties>
 
 	<modules>
-        <module>util-chain</module>
-		<module>util-listener</module>
-		<module>util-strategy</module>
+        <module>strategy</module>
+		<module>strategy-spring-boot-autoconfigure</module>
+		<module>strategy-spring-boot-starter</module>
 	</modules>
 
 	<dependencyManagement>
@@ -36,15 +36,14 @@
 			</dependency>
 			<dependency>
 				<groupId>com.cfysu.util</groupId>
-				<artifactId>listener-spring-boot-autoconfigure</artifactId>
-				<version>${listener.version}</version>
+				<artifactId>strategy</artifactId>
+				<version>${strategy.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cfysu.util</groupId>
-				<artifactId>listener</artifactId>
-				<version>${listener.version}</version>
+				<artifactId>strategy-spring-boot-autoconfigure</artifactId>
+				<version>${strategy.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 </project>
