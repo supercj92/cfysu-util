@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.cfysu.util.listener.autoconfigure.ListenerAutoConfiguration,\
+  com.cfysu.util.listener.register.BotListenerDetectorBeanPostProcessor

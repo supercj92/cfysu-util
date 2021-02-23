@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.cfysu.util.chain.autoconfigure.ChainAutoConfiguration,\
+  com.cfysu.util.chain.core.register.ChainNodeDetector,\
+  com.cfysu.util.chain.core.listener.BuildChainListener,\
+  com.cfysu.util.chain.core.api.ChainInvoker

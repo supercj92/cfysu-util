@@ -9,21 +9,22 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cfysu.util</groupId>
-	<artifactId>util</artifactId>
+	<artifactId>tool-kits-chain</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>util</name>
-	<description>utils</description>
+	<name>tool-kits-chain</name>
+	<description>tool-kits-chain</description>
 	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<listener.version>0.0.1-SNAPSHOT</listener.version>
+		<chain.version>0.0.1-SNAPSHOT</chain.version>
 		<spring-boot.version>2.2.7.RELEASE</spring-boot.version>
 	</properties>
 
 	<modules>
-        <module>util-chain</module>
-		<module>util-listener</module>
+        <module>chain</module>
+		<module>chain-spring-boot-autoconfigure</module>
+		<module>chain-spring-boot-starter</module>
 	</modules>
 
 	<dependencyManagement>
@@ -35,15 +36,14 @@
 			</dependency>
 			<dependency>
 				<groupId>com.cfysu.util</groupId>
-				<artifactId>listener-spring-boot-autoconfigure</artifactId>
-				<version>${listener.version}</version>
+				<artifactId>chain</artifactId>
+				<version>${chain.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cfysu.util</groupId>
-				<artifactId>listener</artifactId>
-				<version>${listener.version}</version>
+				<artifactId>chain-spring-boot-autoconfigure</artifactId>
+				<version>${chain.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 </project>
