@@ -6,9 +6,12 @@ import java.util.EventObject;
  * @Author canglong
  * @Date 2019/11/27
  */
-public abstract class BotEvent extends EventObject {
+public abstract class BotEvent<T> extends EventObject {
 
-    public BotEvent(Object source) {
+    private T context;
+
+    public BotEvent(Object source, T context) {
         super(source);
+        this.context = context;
     }
 }

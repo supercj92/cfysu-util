@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.Callable;
 
 import com.cfysu.util.listener.core.domain.EventResult;
 import com.cfysu.util.listener.core.domain.ListenerRunningInfo;
@@ -19,6 +18,7 @@ import com.cfysu.util.listener.core.listener.BotListenerWrapper;
 import com.cfysu.util.listener.core.listener.ListenerRegister;
 import com.cfysu.util.listener.core.processor.Processor;
 import com.cfysu.util.listener.core.publisher.EventPublisher;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -28,13 +28,12 @@ import org.springframework.core.ResolvableType;
  * @Author canglong
  * @Date 2019/11/27
  */
+@Slf4j
 public class BotEventComponent implements EventPublisher, ListenerRegister, InitializingBean {
 
     public static Set<BotListenerWrapper> listenerList = new HashSet<>();
 
     private Map<String, List<BotListenerWrapper>> eventAssignListenerCache = new HashMap<>();
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(BotEventComponent.class);
 
     private Processor processor;
 
@@ -67,7 +66,7 @@ public class BotEventComponent implements EventPublisher, ListenerRegister, Init
                     break;
                 }
             } catch (Throwable e) {
-                LOGGER.error("invokeListener error, listener:" + botListener.getClass().getName(), e);
+                log.error("invokeListener error, listener:" + botListener.getClass().getName(), e);
                 listenerRunningInfo.setException(true);
             }
         }
