@@ -1,10 +1,11 @@
-package com.cfysu.util.listener.core.register;
+package com.cfysu.util.listener.autoconfigure.register;
 
 
+import com.cfysu.util.listener.autoconfigure.annotation.BotEventListener;
 import com.cfysu.util.listener.core.exception.ListenerRegisterException;
-import com.cfysu.util.listener.core.listener.BotEventListener;
 import com.cfysu.util.listener.core.listener.BotListener;
-import com.cfysu.util.listener.core.publisher.BotEventComponent;
+import com.cfysu.util.listener.autoconfigure.publisher.BotEventComponent;
+import com.cfysu.util.listener.core.listener.BotListenerWrapper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -28,7 +29,8 @@ public class BotListenerDetectorBeanPostProcessor implements BeanPostProcessor {
                 throw new ListenerRegisterException(beanName + " must implements BotListener");
             }
             //register Listener
-            BotEventComponent.listenerList.add((BotListener)bean);
+            BotEventComponent.listenerList.add(
+                new BotListenerWrapper(annotation.timeout(), annotation.order(), (BotListener)bean));
         }
         return bean;
     }

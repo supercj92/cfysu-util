@@ -1,5 +1,6 @@
 package com.cfysu.util.listener.core.publisher;
 
+import com.cfysu.util.listener.core.domain.EventResult;
 import com.cfysu.util.listener.core.event.BotEvent;
 
 /**
@@ -8,5 +9,5 @@ import com.cfysu.util.listener.core.event.BotEvent;
  */
 public interface EventPublisher {
 
-    void publishEvent(BotEvent event);
+    EventResult publishEvent(BotEvent event);
 }

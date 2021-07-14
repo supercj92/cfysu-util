@@ -1,10 +1,10 @@
 package com.cfysu.util.listener.autoconfigure;
 
 
+import com.cfysu.util.listener.autoconfigure.publisher.BotEventComponent;
 import com.cfysu.util.listener.core.event.BotEvent;
-import com.cfysu.util.listener.core.publisher.BotEventComponent;
 import com.cfysu.util.listener.core.publisher.EventPublisher;
-import com.cfysu.util.listener.core.register.ListenerRegister;
+import com.cfysu.util.listener.core.listener.ListenerRegister;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
