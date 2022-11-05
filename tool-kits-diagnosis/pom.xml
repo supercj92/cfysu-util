@@ -34,7 +34,7 @@
             <dependency>
                 <groupId>com.cfysu.util</groupId>
                 <artifactId>diagnosis</artifactId>
-                <scope>compile</scope>
+                <scope>provided</scope>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

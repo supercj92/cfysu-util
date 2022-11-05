@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.cfysu.util</groupId>
             <artifactId>diagnosis</artifactId>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

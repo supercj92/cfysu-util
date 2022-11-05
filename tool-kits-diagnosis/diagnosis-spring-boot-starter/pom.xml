@@ -17,7 +17,7 @@
             <groupId>com.cfysu.util</groupId>
             <artifactId>diagnosis-spring-boot-autoconfigure</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
