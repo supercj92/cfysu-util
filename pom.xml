@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cfysu.util</groupId>
-	<artifactId>util</artifactId>
+	<artifactId>tool-kits</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>util</name>
 	<description>utils</description>
@@ -19,6 +19,7 @@
 		<java.version>1.8</java.version>
 		<listener.version>0.0.1-SNAPSHOT</listener.version>
 		<spring-boot.version>2.2.7.RELEASE</spring-boot.version>
+		<kits.common.version>1.0.0-SNAPSHOT</kits.common.version>
 	</properties>
 
 	<modules>
@@ -26,10 +27,16 @@
 		<module>util-listener</module>
 		<module>util-strategy</module>
 		<module>tool-kits-diagnosis</module>
-    </modules>
+		<module>tool-kits-common</module>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>com.cfysu.util</groupId>
+				<artifactId>tool-kits-common</artifactId>
+				<version>${kits.common.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter</artifactId>

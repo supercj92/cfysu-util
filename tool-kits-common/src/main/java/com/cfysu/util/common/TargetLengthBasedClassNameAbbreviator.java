@@ -11,7 +11,7 @@
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
-package com.cfysu.util.diagnosis.core;
+package com.cfysu.util.common;
 
 public class TargetLengthBasedClassNameAbbreviator {
 

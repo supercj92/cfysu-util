@@ -1,4 +1,4 @@
-package com.cfysu.util.chain.core.util;
+package com.cfysu.util.common;
 
 import org.springframework.core.ResolvableType;
 

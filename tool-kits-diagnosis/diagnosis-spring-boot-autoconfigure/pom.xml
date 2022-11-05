@@ -5,18 +5,16 @@
     <parent>
         <artifactId>tool-kits-diagnosis</artifactId>
         <groupId>com.cfysu.util</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <version>${project.version}</version>
     <artifactId>diagnosis-spring-boot-autoconfigure</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.cfysu.util</groupId>
             <artifactId>diagnosis</artifactId>
-            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

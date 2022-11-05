@@ -9,8 +9,7 @@ import java.util.Set;
 
 import com.cfysu.util.chain.core.node.AbstractNode;
 import com.cfysu.util.chain.core.node.Node;
-import com.cfysu.util.chain.core.util.GenericUtil;
-
+import com.cfysu.util.common.GenericUtil;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 
 /**
