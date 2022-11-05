@@ -25,7 +25,8 @@
         <module>util-chain</module>
 		<module>util-listener</module>
 		<module>util-strategy</module>
-	</modules>
+		<module>tool-kits-diagnosis</module>
+    </modules>
 
 	<dependencyManagement>
 		<dependencies>
