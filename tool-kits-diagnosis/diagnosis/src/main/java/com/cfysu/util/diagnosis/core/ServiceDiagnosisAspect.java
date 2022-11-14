@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.BeanInstantiationException;
 import org.springframework.beans.BeanUtils;
@@ -37,8 +38,12 @@ public class ServiceDiagnosisAspect implements ApplicationContextAware {
         abbreviator = new TargetLengthBasedClassNameAbbreviator(10);
     }
 
-    @Around("@target(enableDebug) || @annotation(enableDebug)")
-    public Object debug(final ProceedingJoinPoint pjp, EnableDebug enableDebug) throws Throwable {
+    @Pointcut(
+        "@within(com.cfysu.util.diagnosis.core.EnableDebug) || @annotation(com.cfysu.util.diagnosis.core.EnableDebug)")
+    public void pointcut() {}
+
+    @Around("pointcut()")
+    public Object debug(final ProceedingJoinPoint pjp) throws Throwable {
         Object target = pjp.getTarget();
         Object[] args = pjp.getArgs();
         MethodSignature signature = (MethodSignature)pjp.getSignature();
@@ -59,11 +64,11 @@ public class ServiceDiagnosisAspect implements ApplicationContextAware {
         }
         Class<?> aClass = target.getClass();
         Class<?> userClass = ClassUtils.getUserClass(aClass);
-        EnableDebug classAnnotation = userClass.getAnnotation(EnableDebug.class);
-        if (enableDebug == null) {
-            enableDebug = classAnnotation;
+        EnableDebug annotation = method.getAnnotation(EnableDebug.class);
+        if (annotation == null) {
+            annotation = userClass.getAnnotation(EnableDebug.class);
         }
-        boolean rt = enableDebug.rt();
+        boolean rt = annotation.rt();
         long start = System.currentTimeMillis();
         Object result = pjp.proceed();
         long end = System.currentTimeMillis();
@@ -77,8 +82,13 @@ public class ServiceDiagnosisAspect implements ApplicationContextAware {
         return result;
     }
 
-    @Around("@target(handleException) || @annotation(handleException)")
-    public Object handleException(final ProceedingJoinPoint pjp, HandleException handleException) throws Throwable {
+    @Pointcut(
+        "@within(com.cfysu.util.diagnosis.core.HandleException) || @annotation(com.cfysu.util.diagnosis.core"
+            + ".HandleException)")
+    public void pointcut2() {}
+
+    @Around("pointcut2()")
+    public Object handleException(final ProceedingJoinPoint pjp) throws Throwable {
         Object target = pjp.getTarget();
         Object[] args = pjp.getArgs();
         Class<?> aClass = target.getClass();
@@ -93,16 +103,16 @@ public class ServiceDiagnosisAspect implements ApplicationContextAware {
         } else if (args.length == 1 && "equals".equals(methodName)) {
             return pjp.proceed();
         }
-        HandleException classAnnotation = userClass.getAnnotation(HandleException.class);
-        if (handleException == null) {
-            handleException = classAnnotation;
+        HandleException annotation = method.getAnnotation(HandleException.class);
+        if (annotation == null) {
+            annotation = userClass.getAnnotation(HandleException.class);
         }
 
         ExceptionHandler handlerInstance;
         try {
-            handlerInstance = applicationContext.getBean(handleException.handler());
+            handlerInstance = applicationContext.getBean(annotation.handler());
         } catch (NoSuchBeanDefinitionException e) {
-            Class<? extends ExceptionHandler> customHandler = handleException.handler();
+            Class<? extends ExceptionHandler> customHandler = annotation.handler();
             handlerInstance = handlerCache.get(customHandler);
             if (handlerInstance == null) {
                 try {
